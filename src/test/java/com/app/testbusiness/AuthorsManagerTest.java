@@ -3,9 +3,9 @@ package com.app.testbusiness;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +17,18 @@ import com.app.entities.Author;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class AuthorsManagerTest {
+public class AuthorsManagerTest {
 
-	@Autowired
-	private AuthorsManager authorsManager;
-	
-	@Test
-	public void getAllAuthorsReturnDataFromDatabase() throws Exception {
-		List<Author> authors = authorsManager.getAllAuthors().collect(Collectors.toList());
-		assertFalse(authors.isEmpty());
-		assertEquals(5, authors.size());
-		
-		
-	}
+  @Autowired
+  private AuthorsManager authorsManager;
 
+  @Test
+  public void getAllAuthorsReturnDataFromDatabase() throws Exception {
+    List<Author> authors = authorsManager.getAllAuthors().collect(Collectors.toList());
+    assertFalse(authors.isEmpty());
+    assertEquals(5, authors.size());
+
+    // If you want to compare all the authors to what we inserted in '02-insert-data-authors.xml'
+    // authors.forEach(System.out::println);
+  }
 }
